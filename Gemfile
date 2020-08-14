@@ -29,6 +29,7 @@ gem "bootstrap-will_paginate", "1.0.0"
 gem "cloudinary"
 gem "friendly_id", "~> 5.3"
 gem "cancancan"
+gem "faker"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

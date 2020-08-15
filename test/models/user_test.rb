@@ -60,4 +60,15 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "should subscribe and unsubscribe a user" do
+    marshall = users(:marshall)
+    charlotte = users(:charlotte)
+    assert_not marshall.subscriptions?(charlotte)
+    marshall.subscribe(charlotte)
+    assert marshall.subscriptions?(charlotte)
+    assert charlotte.subscribers.include?(marshall)
+    marshall.unsubscribe(charlotte)
+    assert_not marshall.subscriptions?(charlotte)
+  end
 end

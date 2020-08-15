@@ -1,3 +1,39 @@
-// Place all the styles related to the Videos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.posts img {
+width: 100%;
+height: 300px;
+object-fit: contain;
+object-position: center;
+}
+
+.card-body {
+    display: flex;
+}
+
+.vcard {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 5px 0px;
+    background-color: #fff;
+    border: solid thin grey;
+}
+
+.vcard video {
+    width: 100%;
+    height: 200px;
+}
+
+.vcontainer {
+    width: 100%;
+    height: auto;
+}
+
+.vcontainer video {
+    width: 100%;
+    height: 480px;
+    margin-bottom: 5px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+}

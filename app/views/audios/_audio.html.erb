@@ -3,7 +3,5 @@
   <%= audio.title %>
 </p>
 <p>
-  <audio controls src="<%= audio.file %>"></audio>
+  <audio controls width="300" height="180" src="<%= audio.file %>"></audio>
 </p>
-<p><%= audio.user.email %></p>
-<%= link_to 'Edit', edit_audio_path(audio) %>

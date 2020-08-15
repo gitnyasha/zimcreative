@@ -1,25 +1,74 @@
-<div class="container">
+<div class="container-fluid main-secction">
   <div class="row">
-    <div class="col-4">
-      <% provide(:title, @user.name) %>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <%= render 'subscribe_form' if user_signed_in? %>
+    <div class="col-md-12 col-sm-12 col-xs-12 image-section">
+      <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
     </div>
-    <div class="col-8">
-      <% if @user.videos.any? || @user.audios.any? || @user.images.any? %>
-        <%= render @videos %>
-        <%= will_paginate @videos %>
-        <%= render @audios %>
-        <%= will_paginate @audios %>
-        <%= render @images %>
-        <%= will_paginate @images %>
-      <% end %>
+    <div class="row user-left-part">
+      <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
+        <div class="row ">
+          <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
+            <img src="http://nicesnippets.com/demo/1499344631_malecostume.png">
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center mt-5">
+            <%= render 'subscribe_form' if user_signed_in? %>
+          </div>
+          <div class="row user-detail-row">
+            <%= render 'shared/stats' %>
+          </div>
+          <div class="col-md-12 user-detail-section2">
+            <div class="border"></div>
+            <p>PERFORMANCE</p>
+            <span>0<small> and 42 review</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
+        <div class="row profile-right-section-row">
+          <div class="col-md-12 profile-header">
+            <div class="row">
+              <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
+                <h1><%= @user.name %></h1>
+              </div>
+              <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
+                <%# <button class="btn btn-info req-btn">Button</button> %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-8  profile-tag-section text-center">
+                <div class="row">
+                  <% if current_user.videos.any? %>
+                    <%= render @videos %>
+                    <%= will_paginate @videos %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-4 img-main-rightPart">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row image-right-part">
+                      <div class="col-md-6 pull-left image-right-detail">
+                        <p>TODAYHIGHLIGHT</p>
+                      </div>
+                      <div class="col-md-6 pull-right image-right-detail text-right">
+                        <span><a href="http://nicesnippets.com">more</a></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div  class="col-md-12 image-right">
+                    <img src="http://nicesnippets.com/demo/Nature-Night-Sky-Stars-Blurred-Light-Show-Mountains-WallpapersByte-com-1920x1080.jpg">
+                  </div>
+                  <div class="col-md-12 image-right-detail-section2">
+                    <p>Urban planning consulation</p>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipisibj.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

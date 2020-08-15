@@ -1,15 +1,11 @@
 <% @user ||= current_user %>
-<div class="stats">
-  <a href="<%= subscriptions_user_path(@user) %>">
-    <strong id="subscriptions" class="stat">
-      <%= @user.subscriptions.count %>
-    </strong>
-    Subscriptions
-  </a>
-  <a href="<%= subscribers_user_path(@user) %>">
-    <strong id="subscribers" class="stat">
-      <%= @user.subscribers.count %>
-    </strong>
-    Subscribers
-  </a>
+<div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
+  <div class="border"></div>
+  <p>Subscribers</p>
+  <span><%= @user.subscribers.count %></span>
+</div>
+<div class="col-md-12 col-sm-12 user-detail-section2 pull-right">
+  <div class="border"></div>
+  <p>Subscriptions</p>
+  <span><%= @user.subscriptions.count %></span>
 </div>

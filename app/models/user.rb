@@ -88,6 +88,24 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # Returns a user's video feed.
+  def video_feed
+    subscriptions_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Video.where("user_id IN (#{subscriptions_ids}) OR user_id = :user_id", user_id: id)
+  end
+
+  # Returns a user's image feed.
+  def image_feed
+    subscriptions_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Image.where("user_id IN (#{subscriptions_ids}) OR user_id = :user_id", user_id: id)
+  end
+
+  # Returns a user's audio feed.
+  def audio_feed
+    subscriptions_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Audio.where("user_id IN (#{subscriptions_ids}) OR user_id = :user_id", user_id: id)
+  end
+
   # subscribes a user.
   def subscribe(other_user)
     subscriptions << other_user

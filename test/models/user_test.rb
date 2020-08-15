@@ -71,4 +71,26 @@ class UserTest < ActiveSupport::TestCase
     marshall.unsubscribe(charlotte)
     assert_not marshall.subscriptions?(charlotte)
   end
+
+  test "feed should have the right posts" do
+    marshall = users(:marshall)
+    charlotte = users(:charlotte)
+    nyasha = users(:nyasha)
+    # Posts from subscribed user
+    nyasha.videos.each do |post_subscriptions|
+      assert marshall.feed.include?(post_subscriptions)
+    end
+    # Self-posts for user with followers
+    marshall.videos.each do |post_self|
+      assert marshall.feed.include?(post_self)
+    end
+    # Self-posts for user with no followers
+    charlotte.videos.each do |post_self|
+      assert charlotte.feed.include?(post_self)
+    end
+    # Posts from unsubscribed user
+    charlotte.videos.each do |post_unsubscribed|
+      assert_not marshall.feed.include?(post_unsubscribed)
+    end
+  end
 end

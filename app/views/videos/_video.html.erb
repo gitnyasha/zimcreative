@@ -1,2 +1,12 @@
-<video controls width="640" height="480" src="<%= video.file %>"></video>
-<%= link_to 'Edit', edit_video_path(video) %> |
+<div class="col-lg-3 col-md-4 col-6 vcard">
+  <%= link_to video do %>
+    <p>
+      <video controls src="<%= video.file %>"></video>
+    </p>
+    <p><%= video.title.capitalize %>
+      <% if current_user?(video.user)%>
+        | <%= link_to 'Edit', edit_video_path(video) %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

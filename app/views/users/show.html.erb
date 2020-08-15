@@ -1,5 +1,25 @@
-<% provide(:title, @user.name) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <% provide(:title, @user.name) %>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <%= render 'subscribe_form' if user_signed_in? %>
+    </div>
+    <div class="col-8">
+      <% if @user.videos.any? || @user.audios.any? || @user.images.any? %>
+        <%= render @videos %>
+        <%= will_paginate @videos %>
+        <%= render @audios %>
+        <%= will_paginate @audios %>
+        <%= render @images %>
+        <%= will_paginate @images %>
+      <% end %>
+    </div>
+  </div>
+</div>

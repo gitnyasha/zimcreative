@@ -30,6 +30,9 @@ gem "cloudinary"
 gem "friendly_id", "~> 5.3"
 gem "cancancan"
 gem "faker"
+gem "grape"
+gem "rack-cors"
+gem "grape-active_model_serializers"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

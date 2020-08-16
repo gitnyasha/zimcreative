@@ -14,6 +14,10 @@ module API
         get ":id" do
           User.where(id: permitted_params[:id]).first!
         end
+        desc "create a user"
+        post do
+          User.create!(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+        end
       end
     end
   end

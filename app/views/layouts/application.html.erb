@@ -28,11 +28,14 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <%= link_to "Users", users_path, class: "nav-link" %>
+            <%= link_to "TV", '/home/tv', class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Channels", users_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User
+              Account
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <% if user_signed_in? %>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     unless user_signed_in?
       store_location
       flash[:alert] = "Please log in."
-      redirect_to login_url
+      redirect_to login_path
     end
   end
 end

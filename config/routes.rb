@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "content/index"
   resources :images
   resources :videos
   resources :audios
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   root "home#index"
-  get "home/tv"
   resources :users do
     member do
       get :subscriptions, :subscribers
